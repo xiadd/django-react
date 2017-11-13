@@ -5,14 +5,18 @@ const glob = require('glob')
 
 function getEntries (EntirePath) {
   EntirePath = path.resolve(EntirePath)
+  const realEntries = {}
+
+  glob.sync(path.resolve(__dirname, 'static/entries/*.js')).forEach(entry => {
+    realEntries[entry.slice(EntirePath.length+1)] = entry
+  })
+  realEntries['hot'] = 'webpack/hot/only-dev-server'
+  realEntries['devServerClient'] = 'webpack-dev-server/client?http://0.0.0.0:3001'
+  return realEntries
 }
 
 module.exports = {
-  entry: [
-    'webpack-dev-server/client?http://localhost:3001',
-    'webpack/hot/only-dev-server',
-    './static/scripts/index'
-  ],
+  entry: getEntries(path.resolve('./static/entries')),
 
   output: {
     path: path.resolve('./static/bundles/'),
