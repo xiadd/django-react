@@ -7,4 +7,6 @@ from .models import Post
 
 
 class PostList(ListView):
-    pass
+    template_name = 'post/list.html'
+    model = Post
+    context_object_name = 'posts'
