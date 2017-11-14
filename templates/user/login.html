@@ -1,14 +1,12 @@
-{% extends 'layout/base.html' %}
+{% extends 'layout/user.html' %}
 {% load render_bundle from webpack_loader %}
 
 {% block title %}
-  {{ post.title }}
+
 {% endblock %}
 
 {% block container %}
-  <div id="app" data-post-id={{ post.id }}>
-    {{ post.title }}
-  </div>
+
 {% endblock %}
 
 {% block scripts %}
