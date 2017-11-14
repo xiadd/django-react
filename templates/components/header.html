@@ -1,6 +1,11 @@
 <div id="header-menu">
   <div class="userinfo">
-    <a href="###">{{ request.user }}</a>
-    <a href="####">退出</a>
+    {% if request.user.is_authenticated %}
+      <a href="###">{{ request.user }}</a>
+      <a href="{% url 'user:logout' %}">退出</a>
+    {% else %}
+      <a href="###">注册</a>
+      <a href="{% url 'user:logout' %}">登录</a>
+    {% endif %}
   </div>
 </div>

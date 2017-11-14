@@ -2,14 +2,16 @@
 {% load render_bundle from webpack_loader %}
 
 {% block title %}
-
+  Login
 {% endblock %}
 
 {% block container %}
+  <div id="app">
 
+  </div>
 {% endblock %}
 
 {% block scripts %}
   {% render_bundle 'vendor.js' %}
-  {% render_bundle 'detail.js' %}
+  {% render_bundle 'login.js' %}
 {% endblock %}

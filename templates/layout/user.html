@@ -16,10 +16,6 @@
 </head>
 <body>
 
-{% if request.user.is_authenticated %}
-  {% include 'components/header.html' %}
-{% endif %}
-
 <div class="container">
   {% block container %}
   {% endblock %}

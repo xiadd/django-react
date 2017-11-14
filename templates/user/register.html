@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'layout/user.html' %}
+{% load render_bundle from webpack_loader %}
 
-</body>
-</html>
+{% block title %}
+  Register
+{% endblock %}
+
+{% block container %}
+  <div id="app">
+    Hello register
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  {% render_bundle 'vendor.js' %}
+  {% render_bundle 'login.js' %}
+{% endblock %}
