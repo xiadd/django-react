@@ -3,5 +3,5 @@
     "libraryName": "antd",
     "style": true
   }]],
-  "presets": ["env", "react"]
+  "presets": ["env", "react", "stage-0"]
 }

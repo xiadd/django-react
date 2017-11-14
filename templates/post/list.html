@@ -2,9 +2,15 @@
 {% load render_bundle from webpack_loader %}
 
 {% block container %}
-  <h1>Hello!</h1>
+  <div id="app">
+    {% for post in posts %}
+      <h1>{{ post.title }}</h1>
+    {% endfor %}
+
+  </div>
 {% endblock %}
 
 {% block scripts %}
-  {% render_bundle 'login.js' 'js' %}
+  {% render_bundle 'vendor.js' %}
+  {% render_bundle 'login.js' %}
 {% endblock %}

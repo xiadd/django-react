@@ -30,6 +30,11 @@ module.exports = {
     new BundleTracker({filename: './webpack-stats.json'}),
     new webpack.NodeEnvironmentPlugin({
       NODE_ENV: 'development'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor.js',
+      filename: 'vendor.js',
+      minChunks: 3
     })
   ],
   devtool: 'source-map',
