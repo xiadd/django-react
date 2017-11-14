@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'webpack_loader',
 
-    'posts.apps.PostsConfig'
+    'posts.apps.PostsConfig',
+    'account.apps.AccountConfig'
 ]
 
 MIDDLEWARE = [
