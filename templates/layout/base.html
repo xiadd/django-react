@@ -6,10 +6,19 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Base</title>
+  <title>
+    {% block title %}
+      Base
+    {% endblock %}
+  </title>
   <link rel="stylesheet" href="{% static 'styles/antd.min.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/index.css' %}">
 </head>
 <body>
+
+{% if request.user.is_authenticated %}
+  {% include 'components/header.html' %}
+{% endif %}
 
 <div class="container">
   {% block container %}

@@ -3,14 +3,33 @@
 
 {% block container %}
   <div id="app">
-    {% for post in posts %}
-      <h1>{{ post.title }}</h1>
-    {% endfor %}
-
+    <div class="ant-layout" style="margin-top: 20px; padding: 10px; background: rgb(255, 255, 255);">
+      <div class="ant-layout-content" style="padding: 0px 30px;">
+        <div class="ant-row" style="margin-left: -8px; margin-right: -8px;">
+          {% for post in posts %}
+            <div class="ant-col-24" style="padding-left: 8px; padding-right: 8px; margin-bottom: 10px;">
+              <div class="ant-card ant-card-bordered ant-card-wider-padding ant-card-padding-transition">
+                  <div class="ant-card-head">
+                      <div class="ant-card-head-title">{{ post.title }}</div>
+                      <div class="ant-card-extra">
+                        <a href="###">详情</a>
+                      </div>
+                   </div>
+                  <div class="ant-card-body">
+                    <p class="post-intro">
+                      {{ post.intro }}
+                    </p>
+                  </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+    </div>
   </div>
 {% endblock %}
 
 {% block scripts %}
   {% render_bundle 'vendor.js' %}
-  {% render_bundle 'login.js' %}
+  {% render_bundle 'list.js' %}
 {% endblock %}

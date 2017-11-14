@@ -1,0 +1,16 @@
+#header-menu {
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+}
+
+#header-menu .userinfo {
+    float: right;
+}
+
+.post-intro {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

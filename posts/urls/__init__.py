@@ -1,6 +1,7 @@
 from django.conf.urls import url
-from ..views import PostList
+from ..views import PostList, PostDetail
 
 urlpatterns = [
-    url(r'^list/', PostList.as_view(), name='list')
+    url(r'^list/', PostList.as_view(), name='list'),
+    url(r'^detail/(?P<pk>[0-9]+)/', PostDetail.as_view(), name='detail')
 ]
