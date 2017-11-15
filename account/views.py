@@ -19,7 +19,10 @@ def user_logout(requset):
 class UserLogin(View):
 
     def get(self, request):
-        return render(request, 'user/login.html')
+        if request.user.is_authenticated:
+            return redirect(reverse('posts:list'))
+        else:
+            return render(request, 'user/login.html')
 
     def post(self, request):
         username = request.POST.get('username', None)
