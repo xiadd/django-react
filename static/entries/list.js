@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import axios from  'axios'
 
-import { Layout,  Col, Row, Card, Button, message } from 'antd'
+import { Layout,  Col, Row, Card, Button, message, notification } from 'antd'
 const { Header, Content } = Layout
 
 
@@ -29,7 +29,10 @@ class Post extends Component {
 
   loadMore = () => {
     if (!this.state.next) {
-      message.info('没有更多了')
+      notification.error({
+        message: '出错啦!',
+        description: '没有下一页了!'
+      })
       this.setState({
         loading: false
       })

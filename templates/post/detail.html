@@ -7,7 +7,14 @@
 
 {% block container %}
   <div id="app" data-post-id={{ post.id }}>
-    {{ post.title }}
+    <div class="ant-layout" style="margin-top: 20px; padding: 10px; background: rgb(255, 255, 255);">
+      <div class="ant-layout-content" style="padding: 0px 30px;">
+        <h1>{{ post.title }}</h1>
+        <div style="margin-top: 20px; font-size: 13px;">
+          {{ post.content }}
+        </div>
+      </div>
+    </div>
   </div>
 {% endblock %}
 
