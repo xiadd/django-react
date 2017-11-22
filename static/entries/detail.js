@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import axios from  'axios'
+import { Provider } from 'react-redux'
+import { createStore, compose  } from 'redux'
 
 import { Layout,  Col, Row, Card, Button, message } from 'antd'
 const { Content } = Layout
 
+const counter =  (state = 0, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    case 'DECREMENT':
+      return state - 1
+    default:
+      return state
+  }
+}
+
+const store = createStore(counter)
 
 class Detail extends Component {
   constructor (props) {
@@ -28,7 +42,7 @@ class Detail extends Component {
     return (
       <Layout style={{ marginTop: '20px', padding: '10px', background: '#fff'}}>
         <Content style={{ padding: '0 30px' }}>
-          <h1>{this.state.post.title}</h1>
+          <h1>{this.state.post.title}, {this.props.data}</h1>
           <div style={{marginTop: '20px', fontSize: '13px'}}>
             {this.state.post.content}
           </div>
@@ -39,6 +53,6 @@ class Detail extends Component {
 }
 
 ReactDom.render(
-  <Detail/>,
+  <Detail data={store.getState()} onClick={() => store.dispatch({ type: 'INCREMENT' })} />,
   document.getElementById('app')
 )
