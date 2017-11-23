@@ -10,6 +10,7 @@ const { Content } = Layout
 const counter =  (state = 0, action) => {
   switch (action.type) {
     case 'INCREMENT':
+      console.log(action)
       return state + 1
     case 'DECREMENT':
       return state - 1
@@ -18,7 +19,10 @@ const counter =  (state = 0, action) => {
   }
 }
 
-const store = createStore(counter)
+const store = createStore(
+  counter, /* preloadedState, */
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 class Detail extends Component {
   constructor (props) {
@@ -39,10 +43,11 @@ class Detail extends Component {
   }
 
   render () {
+    const { onIncrement, data } = this.props
     return (
       <Layout style={{ marginTop: '20px', padding: '10px', background: '#fff'}}>
         <Content style={{ padding: '0 30px' }}>
-          <h1>{this.state.post.title}, {this.props.data}</h1>
+          <h1 onClick={onIncrement}>{this.state.post.title}, {data}</h1>
           <div style={{marginTop: '20px', fontSize: '13px'}}>
             {this.state.post.content}
           </div>
@@ -52,7 +57,10 @@ class Detail extends Component {
   }
 }
 
-ReactDom.render(
-  <Detail data={store.getState()} onClick={() => store.dispatch({ type: 'INCREMENT' })} />,
+const render = () => ReactDom.render(
+  <Detail data={store.getState()} onIncrement={() => store.dispatch({ type: 'INCREMENT' })} />,
   document.getElementById('app')
 )
+
+render()
+store.subscribe(render)
