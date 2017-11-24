@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import axios from  'axios'
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+
+
+
 import { Layout,  Col, Row, Card, Button, message, notification } from 'antd'
 const { Header, Content } = Layout
 
@@ -80,8 +88,33 @@ class Post extends Component {
   }
 }
 
+const About = () => (
+  <div>
+    <h1>About</h1>
+  </div>
+) 
+
+const Home = () => (
+  <div>
+    <h1>Home</h1>
+  </div>
+)
+
+const ListRouter = () => (
+  <Router>
+    <div>
+      <ul>
+        <li><Link to="/list/about">About</Link></li>
+        <li><Link to="/list/home">Home</Link></li>
+      </ul>
+      <Route path="/list/about" component={About}/>
+      <Route path="/list/home" component={Home}/>
+    </div>
+  </Router>
+)
+
 
 ReactDom.render(
-  <Post />,
+  <ListRouter />,
   document.getElementById('app')
 )
