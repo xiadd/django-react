@@ -88,6 +88,10 @@ class Post extends Component {
   }
 }
 
+const requireLogin = function () {
+  console.log(111)
+}
+
 const About = () => (
   <div>
     <h1>About</h1>
@@ -104,11 +108,11 @@ const ListRouter = () => (
   <Router>
     <div>
       <ul>
-        <li><Link to="/list/about">About</Link></li>
-        <li><Link to="/list/home">Home</Link></li>
+        <li><Link to="about">About</Link></li>
+        <li><Link to="home">Home</Link></li>
       </ul>
-      <Route path="/list/about" component={About}/>
-      <Route path="/list/home" component={Home}/>
+      <Route path="about" component={About}/>
+      <Route path="home" component={Home}/>
     </div>
   </Router>
 )
