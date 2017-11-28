@@ -111,8 +111,8 @@ const ListRouter = () => (
         <li><Link to="about">About</Link></li>
         <li><Link to="home">Home</Link></li>
       </ul>
-      <Route path="about" component={About}/>
-      <Route path="home" component={Home}/>
+      <Route path="/list/about" component={About} onEnter={requireLogin}/>
+      <Route path="/list/home" component={Home} onEnter={requireLogin}/>
     </div>
   </Router>
 )
