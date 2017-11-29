@@ -116,6 +116,6 @@ const ListRouter = () => (
 
 
 ReactDom.render(
-  <ListRouter />,
+  <Post />,
   document.getElementById('app')
 )

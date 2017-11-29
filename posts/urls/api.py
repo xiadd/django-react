@@ -1,5 +1,4 @@
 from django.conf.urls import url
-# from .views import PostList
 from posts.api.post_list import PostList
 from posts.api.post_detail import PostDetail
 
