@@ -57,10 +57,9 @@ class Detail extends Component {
   }
 }
 
-const render = () => ReactDom.render(
-  <Detail data={store.getState()} onIncrement={() => store.dispatch({ type: 'INCREMENT' })} />,
+ReactDom.render(
+  <Provider store={store} >
+  <Detail data={store.getState()} onIncrement={() => store.dispatch({ type: 'INCREMENT' })} />
+  </Provider>,
   document.getElementById('app')
 )
-
-render()
-store.subscribe(render)
